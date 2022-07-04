@@ -1,0 +1,36 @@
+.page-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #242424;
+  color: @white;
+}
+
+.page-header__logo {
+  min-height: 85px;
+  text-align: center;
+
+  @media (min-width: @tablet-width) {
+    order: 2;
+    min-height: 400px;
+    background-color: @black;
+    background-image: url("../../img/bg-header.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% -9px;
+  }
+
+  @media (min-width: @desktop-width) {
+    min-height: 648px;
+    background-position: 50% 0;
+    background-size: cover;
+  }
+}
+
+.page-header__logo img {
+  width: 226px;
+  height: 85px;
+  vertical-align: middle;
+
+  @media (min-width: @desktop-width) {
+    margin-top: 57px;
+  }
+}

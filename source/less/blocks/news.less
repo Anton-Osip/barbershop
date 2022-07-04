@@ -1,0 +1,30 @@
+.news__to-all--top {
+  display: none;
+}
+
+@media (min-width: @tablet-width) {
+  .news__wrapper {
+    width: 640px;
+    margin: 0 auto;
+  }
+
+  .news__to-all--top {
+    display: block;
+  }
+
+  .news__to-all--bottom {
+    display: none;
+  }
+
+  .news__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .news__wrapper {
+    width: 960px;
+  }
+}

@@ -1,0 +1,28 @@
+.social__title {
+  display: none;
+}
+
+@media (min-width: @tablet-width) {
+  .page-footer__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 640px;
+    margin: 0 auto;
+  }
+
+  .page-footer__social {
+    order: 3;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .page-footer__wrapper {
+    width: 960px;
+  }
+
+  .social__title {
+    display: block;
+  }
+}
