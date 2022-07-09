@@ -13,7 +13,7 @@
       <a href="index.html" class="page-header__logo">
         <img src="img/logotype-mobile.svg" alt='Барбершоп "Бородинский"' class="page-header__logo-image" width="226" height="30" >
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav main-nav--closed main-nav--nojs">
         <button class="main-nav__toggle" type="button">
           <span class="visually-hidden">Открыть меню</span>
         </button>
@@ -28,9 +28,12 @@
             <li class="user-list__item">
               <a href="login.html" class="user-list__login">
                 <svg class="user-list__login-icon" width="16" height="16" >
-                  <use xlink:href="./img/sprite.svg#icon-login"></use>
+                  <g >
+                  <path d="M7 2H14V14H7V16H16V0H7V2Z" />
+                  <path d="M7 9H0V7H7V4L11 8L7 12V9Z" />
+                  </g>
                 </svg>
-                Войти
+                <span>Войти</span>
               </a>
             </li>
           </ul>
@@ -63,40 +66,38 @@
           </header>
           <dl class="stats__list">
             <div class="stats__item">
-              <td class="stats__number">
+              <dt class="stats__number">
                 1 500
                 <sup>*</sup>
-              </td>
+              </dt>
               <dd class="stats__description">
                 рублей<br>
                 вложений
               </dd>
             </div>
             <div class="stats__item">
-              <td class="stats__number">
+              <dt class="stats__number">
                 7 200
-                <sup>*</sup>
-              </td>
+              </dt>
               <dd class="stats__description">
                 секунд<br>
                 времени мастера
               </dd>
             </div>
             <div class="stats__item">
-              <td class="stats__number">
+              <dt class="stats__number">
                 9 000
-                <sup>*</sup>
-              </td>
+              </dt>
               <dd class="stats__description">
                 постриженных<br>
                 волос
               </dd>
             </div>
             <div class="stats__item">
-              <td class="stats__number">
+              <dt class="stats__number">
                 500 000
                 <sup>*</sup>
-              </td>
+              </dt>
               <dd class="stats__description">
                 лайков и<br>
                 комплиментов
@@ -251,5 +252,21 @@
         </div>
       </div>
     </footer>
+    <script>
+      const navMain = document.querySelector('.main-nav')
+      const navToggle = document.querySelector('.main-nav__toggle')
+
+      navMain.classList.remove('main-nav--nojs')
+
+      navToggle.addEventListener('click',()=>{
+        if(navMain.classList.contains('main-nav--closed')){
+          navMain.classList.remove('main-nav--closed')
+          navMain.classList.add('main-nav--opened')
+        } else {
+          navMain.classList.add('main-nav--closed')
+          navMain.classList.remove('main-nav--opened')
+        }
+      })
+    </script>
   </body>
 </html>

@@ -3,6 +3,10 @@
   width: auto;
   min-height: 51px;
   background-color: @nav-bg;
+
+  @media (min-width: @tablet-width) {
+    background-color: @black;
+  }
 }
 
 .main-nav__toggle {
@@ -21,6 +25,10 @@
   &:active {
     background-color: @toggle-hover;
   }
+
+  @media (min-width: @tablet-width) {
+    display: none;
+  }
 }
 
 .main-nav--closed .main-nav__toggle::before {
@@ -31,12 +39,108 @@
   width: 36px;
   height: 2px;
   background-color: @white;
-  box-shadow: 0 8px 0 0 fade(@white, 30%), 0 16px 0 0 fade(@white, 30%);
+  box-shadow: 0 8px 0 0 @white, 0 16px 0 0 @white;
 }
 
 .main-nav--closed .main-nav__toggle:active::before {
   background-color: fade(@white, 30%);
   box-shadow: 0 8px 0 0 fade(@white, 30%), 0 16px 0 0 fade(@white, 30%);
+}
+
+@media (max-width: @mobile-width-only) {
+  .main-nav--closed .site-list__item {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  .main-nav--closed .site-list__item--active a {
+    padding-right: 70px;
+    padding-left: 70px;
+    text-align: center;
+  }
+
+  .main-nav--closed .user-list__item {
+    display: none;
+  }
+
+  .main-nav--opened .main-nav__wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 70px;
+    z-index: 10;
+    min-height: 80vh;
+    background-color: @nav-bg;
+  }
+
+  .main-nav--opened .main-nav__wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 7px;
+    height: 100%;
+    box-shadow: inset 4px 0 7px -2px fade(@black, 40%);
+  }
+}
+
+.main-nav--nojs .main-nav__toggle {
+  display: none;
+}
+
+.main-nav--nojs .main-nav__wrapper {
+  position: static;
+  min-height: 0;
+}
+
+.main-nav--nojs .site-list__item {
+  display: block;
+}
+
+.main-nav--nojs .site-list__item--active a {
+  padding-right: 21px;
+  padding-left: 21px;
+  text-align-last: left;
+}
+
+.main-nav--nojs .user-list__item {
+  display: block;
+  background-color: @nav-bg;
+}
+
+.main-nav--opened .main-nav__toggle {
+  top: 0;
+  right: auto;
+  left: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 18px;
+    width: 36px;
+    height: 2px;
+    background-color: @white;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:active::before,
+  &:active::after {
+    background-color: fade(@white, 30%);
+  }
 }
 
 .main-nav__list {
@@ -58,10 +162,6 @@
   }
 
   .main-nav__toggle {
-    display: none;
-  }
-
-  .user-list {
     display: none;
   }
 }
